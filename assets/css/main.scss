@@ -222,8 +222,10 @@ img {
 .page-wrapper {
   box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); 
   background-color: $color-white;
-  min-height: 500px;
   margin: 0 0 20px 0;
+  @include MQ(M) {
+    min-height: 500px;
+  }
 }
 
 .logo-wrapper {
@@ -577,18 +579,14 @@ img {
   clear:left;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
-  display: none;
   border-top: 1px solid #eee;
-  @include MQ(M) {
-    display: block;
-    padding: 20px 0;
-  }    
+  padding: 20px; 
 }
 
 .key-points h2 {
-  margin-top: 0;
+  margin-top:0;
   @include font-size(20px);
 }
 .key-points .key-points-wrapper .key-point { 
@@ -607,7 +605,11 @@ img {
 }
 
 .key-points .key-points-wrapper .key-point {
-  @include column(.25);
+  @include column(1);
+  @include MQ(M) {
+    @include column(.25);
+  }
+
 }
 
 /*
