@@ -583,6 +583,9 @@ img {
   overflow: hidden;
   border-top: 1px solid #eee;
   padding: 20px; 
+  @include MQ(M) {
+    text-align: center;
+  }
 }
 
 .key-points h2 {
