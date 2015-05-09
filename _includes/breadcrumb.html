@@ -1,0 +1,13 @@
+{% capture breadcrumb %}
+<div class="breadcrumb-wrapper">
+  <ul class="breadcrumb">
+    <li>
+      <a href="{{ '' | prepend: site.baseurl | prepend: site.url | append: '/' }}" 
+title="{{ site.title }}">Home</a>
+    </li>
+    <li class="active">
+        {{ page.title }}
+    </li>
+  </ul>
+</div>
+{% endcapture %}{{ breadcrumb | strip_newlines }}

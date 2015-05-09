@@ -1,3 +1,15 @@
+ if ($('.main-slider').length) {
+      $(".main-slider").bxSlider({
+          auto: true,
+          mode: "fade",
+          controls: false,            
+          pager: false,
+          speed: 1000,
+          adaptiveHeight: false,
+          preloadImages: 'visible',               
+      }); 
+    }
+
 /*
  * Sidebar toggle function 
  */
@@ -124,10 +136,10 @@ jQuery(document).ready(function() {
     }
   }
 
-  // $('.load-view').click(function(){
+  $('.load-view').click(function(){
     initDisqusComments();
-    // $(this).fadeOut(200);
-  // });
+    $(this).fadeOut(200);
+  });
 });
 
 /*

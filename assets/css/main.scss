@@ -147,6 +147,16 @@ img {
 }
 
 
+.wc-img-replace { /* replace text with a background-image */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
 /*------------------------------------*\
     #SETTINGS-TYPE
 \*------------------------------------*/
@@ -302,7 +312,7 @@ img {
         height: 45px;
         line-height: 42px;
         margin: 0;
-        border-bottom: 1px solid lighten(#282a33, 10%);
+        border-bottom: 1px solid lighten($color-1, 10%);
         display: block;
         width: auto;
         text-align: center;
@@ -319,6 +329,12 @@ img {
         }
         &:last-child {
             border-bottom: none;
+        }
+        &.hide-on-mobile {
+          display: none;
+          @include MQ(M) {
+            display: block;
+          }
         }
         a {
             overflow:hidden;
@@ -337,6 +353,7 @@ img {
                 text-decoration: none;
             }
         }
+        
     }
 }
 
@@ -348,6 +365,11 @@ img {
 .page-wrapper .post {
   padding:20px;
 }
+
+.page-wrapper .post .header-title h2{
+  margin-top: 0;
+}
+
 
 /*
  * Site footer
@@ -374,6 +396,7 @@ img {
     @include font-size(12px);
     color: $color-black;
     text-shadow: #ddd 0px 1px 6px;
+    padding: 0 20px;
     a {
         color: $color-black;
         text-shadow: #ddd 0px 1px 6px;
@@ -429,7 +452,6 @@ img {
 .contact-us-item h3 {
   margin-top: 0;
   padding-bottom: 10px;
-  font-weight: bold;
   border-bottom: 1px solid #eee;
 }
 
@@ -448,6 +470,7 @@ img {
   border-top: 1px solid #eee;
   text-align: center;
   padding:10px 16px 0px 16px;    
+  text-transform: uppercase;
 }
 
 .contact-us-social-media-links {
@@ -465,8 +488,8 @@ img {
 
   .facebook-link, .youtube-link{
     color: $gray-dark;
-    font-size: 50px;
-    margin: 0 4px;
+    @include font-size(120px);
+    margin: 0 20px;
     text-decoration: none;
   }
 
@@ -493,7 +516,7 @@ img {
     @include font-size(20px);
     text-align:center;
     padding: 1em;
-    background-color: #ccc;
+    background-color: $color-white;
     line-height: 1.4;
     a {
         text-transform: uppercase;
@@ -501,6 +524,7 @@ img {
         border-bottom: none;
         i.fa {
             color: #d14836;
+            font-size: 23px;
         }
         &:hover, &:focus, &:active {
             color: #d14836;
@@ -509,3 +533,101 @@ img {
         }
     }
 }
+
+/*
+ * Breadcrumb
+ */
+.breadcrumb {
+  padding: 8px 15px;
+  list-style: none;
+  margin-bottom: 0;
+  background-color: #f5f5f5;
+}
+
+.breadcrumb>li {
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.breadcrumb>li+li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}
+
+.breadcrumb>.active{
+  color: #777;
+}
+
+/*
+ * Video embed frame
+ */
+.video-frame {
+    padding: 10px 0 20px 0;
+}
+
+
+/**
+*
+* Key points 
+* Renders in between slider and the feature blocks
+*/
+.key-points {
+  display: block;
+  clear:left;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  display: none;
+  border-top: 1px solid #eee;
+  @include MQ(M) {
+    display: block;
+    padding: 20px 0;
+  }    
+}
+
+.key-points h2 {
+  margin-top: 0;
+  @include font-size(20px);
+}
+.key-points .key-points-wrapper .key-point { 
+  @include font-size(14px);     
+  list-style: none;
+}
+.key-points .key-points-wrapper .key-point i { 
+  color: $color-1;
+  padding-right: 8px;
+  @include font-size(20px);
+}
+
+.key-points .key-points-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.key-points .key-points-wrapper .key-point {
+  @include column(.25);
+}
+
+/*
+ * Animation
+ */
+@keyframes blink {  
+    0% { color: #d14836; }
+    50% { color: darken(#d14836, 50%); }
+    100% { color: $color-1; }
+}
+@-webkit-keyframes blink {
+    0% { color: #d14836; }
+    50% { color: darken(#d14836, 50%); }
+    100% { color: $color-1; }
+}
+.blink {
+    -webkit-animation: blink 3s linear infinite;
+    -moz-animation: blink 3s linear infinite;
+    -ms-animation: blink 3s linear infinite;
+    -o-animation: blink 3s linear infinite;
+    animation: blink 3s linear infinite;
+} 
+

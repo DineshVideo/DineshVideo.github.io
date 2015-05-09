@@ -54,13 +54,17 @@
           <nav id="main-nav" class="cd-main-nav">
             <ul>
                 {% for item in site.data.main-nav %}
+                {% assign lc = "" %}
                 {% assign item_url = item.href | append:"/" %}
                 {% if item_url == page.url %}
                 {% assign c = "active" %}
                 {% else %}
                 {% assign c = "" %}
+                  {% if item.href == '/#' %}
+                    {% assign lc = "hide-on-mobile" %}
+                  {% endif %}
                 {% endif %}
-                <li>
+                <li class="{{ lc }}">
                   <a class="{{ c }}" 
                     href="{{ item.href | prepend: site.baseurl | prepend: site.url }}">
                     {{ item.title }}
@@ -73,9 +77,7 @@
       </div>
       <div class="container">
         <div class="page-wrapper">
-          <div class="breadcrumb">
-            
-          </div>
+          
           {{ content }}
         </div>
       </div>
@@ -135,6 +137,7 @@
 
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ '/assets/js/gaya.js' | prepend: site.baseurl | prepend: site.url }}"></script>
     {% comment %} Google Analytics {% endcomment %}
     {% include google-analytics.html %}   
   </body>
