@@ -1,4 +1,12 @@
-- title: "About me" # Title/Caption of the menu item
-  href: "/about" # the page where it pointed 
-- title: "Blog Archive"
-  href: "/archive"
+- title: "Home" # Title/Caption of the menu item
+  href: "/" # the page where it pointed 
+- title: "Live Show Videos" # Title/Caption of the menu item
+  href: "/#" # the page where it pointed 
+- title: "Live Show Audios"
+  href: "/#"
+- title: "Events"
+  href: "/#"
+- title: "Services"
+  href: "/#"
+- title: "Contact Us"
+  href: "/contact"

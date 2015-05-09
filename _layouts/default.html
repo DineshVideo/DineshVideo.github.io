@@ -30,6 +30,7 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="stylesheet" 
     href="{{ '/assets/css/main.css' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- IE Fixes -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,7 +44,61 @@
   </head>
   <body>
     <div class="main-wrapper">
-      {{ content }}
+      <div class="container">
+        <div class="logo-wrapper">
+          {% include logo.html %}
+        </div>
+      </div>
+      <div class="container">
+        <div class="top-menu">
+          <nav id="main-nav" class="cd-main-nav">
+            <ul>
+                {% for item in site.data.main-nav %}
+                {% assign item_url = item.href | append:"/" %}
+                {% if item_url == page.url %}
+                {% assign c = "active" %}
+                {% else %}
+                {% assign c = "" %}
+                {% endif %}
+                <li>
+                  <a class="{{ c }}" 
+                    href="{{ item.href | prepend: site.baseurl | prepend: site.url }}">
+                    {{ item.title }}
+                  </a>
+                </li>
+                {% endfor %}
+            </ul>
+          </nav>
+        </div><!-- end top-menu -->
+      </div>
+      <div class="container">
+        <div class="page-wrapper">
+          <div class="breadcrumb">
+            
+          </div>
+          {{ content }}
+        </div>
+      </div>
+      <div class="site-footer">
+        <ul class="bottom-menu">
+          {% for item in site.data.main-nav %}
+          {% assign item_url = item.href | append:"/" %}
+          {% if item_url == page.url %}
+          {% assign c = "active" %}
+          {% else %}
+          {% assign c = "" %}
+          {% endif %}
+          <li>
+            <a class="{{ c }}" 
+              href="{{ item.href | prepend: site.baseurl | prepend: site.url }}">
+              {{ item.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <p>
+          Copyright &copy; {{ site.time | date: '%Y'}} - {{ site.title }}, {{ site.tagline }}.
+        </p>
     </div>
     <script type="text/javascript">
       var config = {
