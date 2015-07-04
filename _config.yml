@@ -33,7 +33,7 @@ theme:
 
   # Google Analytics/Webmaster key, leave blank to ignore
   google_analytics_key: 
-  google_webmaster_key: 
+  google_webmaster_key: 9UbV0k0aWlmQZ-wAlkxftbJYZAx9sGlRG3ZtNnuddoU
 
 # Build settings
 markdown: kramdown
